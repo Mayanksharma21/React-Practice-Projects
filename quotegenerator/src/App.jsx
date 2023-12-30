@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
+
+  useEffect(() => {
+    fetch("https://api.quotable.io/quotes/random")
+      .then((res) => res.json())
+      .then(
+        (res) => (
+          setQuote(res[0].content),
+          setAuthor(res[0].author)
+        )
+      );
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="max-w-5xl mx-auto bg-black my-44">
+      <div className="flex flex-col justify-center items-end gap-6 text-center p-10">
+        <div className="max-w-3xl text-2xl mx-auto  p-4">{quote}</div>
+        <div className="">{`~ ${author}`}</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
