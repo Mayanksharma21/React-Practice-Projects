@@ -4,10 +4,10 @@ This project is a simple Todo application built with React. It allows users to m
 
 ## Table of Contents
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Features](#Features)
+- [Tech Stack](#Tech-Stack)
+- [Installation](#Installation)
+- [Deployed Website](#Deployed-Website)
 
 ## Features
 
@@ -50,3 +50,5 @@ This project is a simple Todo application built with React. It allows users to m
 
 4. Open your browser and visit http://localhost:5172 to use the Todo App.
 
+## Deployed Website
+    https://apptodocontext.netlify.app/
