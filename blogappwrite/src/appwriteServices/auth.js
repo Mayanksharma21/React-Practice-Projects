@@ -1,4 +1,4 @@
-import config from "../config/config";
+import config from "../config/config.js";
 import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
@@ -46,10 +46,9 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      const user = await this.account.get();
-      return user;
+      return await this.account.get();
     } catch (error) {
-      throw error;
+      console.log("User Details Get Error in auth.js file");
     }
 
     return null;
